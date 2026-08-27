@@ -17,6 +17,20 @@ import { configs, pageLinkRefs } from './configs/template';
 import { markdown } from './configs/utils';
 import locales from './locales';
 
+const excludeGitTagDecorations = () => {
+    const configCount = Number.parseInt(process.env.GIT_CONFIG_COUNT ?? '0', 10);
+    for (let index = 0; index < configCount; index++)
+        if (process.env[`GIT_CONFIG_KEY_${index}`] === 'log.excludeDecoration' &&
+            process.env[`GIT_CONFIG_VALUE_${index}`] === 'refs/tags/*') return;
+    // The changelog client drops a page's only commit when that commit also owns a release tag.
+    // Process-scoped Git config hides tag decorations without deleting tags or mutating .git/config.
+    process.env.GIT_CONFIG_COUNT = String(configCount + 1);
+    process.env[`GIT_CONFIG_KEY_${configCount}`] = 'log.excludeDecoration';
+    process.env[`GIT_CONFIG_VALUE_${configCount}`] = 'refs/tags/*';
+};
+
+excludeGitTagDecorations();
+
 /** Creates the VitePress configuration for local development or production builds. */
 const createConfig: UserConfigFn<DefaultTheme.Config> = ({ command }) => defineConfig({
     base: configs.website.base,
