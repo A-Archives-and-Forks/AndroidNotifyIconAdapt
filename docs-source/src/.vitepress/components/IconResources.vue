@@ -11,18 +11,20 @@ import { isLocalizedRouteSwitch } from '../configs/i18n';
 import { useComponentMessages } from '../theme/i18n';
 import CategoryNavigation from './icon-resources/CategoryNavigation.vue';
 import ResourceResults from './icon-resources/ResourceResults.vue';
+import ResourceSorting from './icon-resources/ResourceSorting.vue';
 import {
     categorySpecs,
     loadIconResources,
+    resolveLabel,
     type CategoryId,
     type ManifestLabel
 } from '../data/icon-resources';
 import { iconResourcesState, resetIconResourcesState } from './icon-resources/utils/state';
 
-const { text } = useComponentMessages('iconResources');
+const { locale, text } = useComponentMessages('iconResources');
 const route = useRoute();
 const mountedRoutePath = route.path;
-const { activeCategoryId, categories, fatalError, loading, query } = iconResourcesState;
+const { activeCategoryId, categories, fatalError, loading, query, sortMode } = iconResourcesState;
 const labelSearchValues = (label: ManifestLabel | undefined) =>
     typeof label === 'string' ? [label] : Object.values(label ?? {});
 const systemMenuOpen = ref(false);
@@ -49,6 +51,23 @@ const filteredEntries = computed(() => {
         entry.effectiveRule.contributors
     ].some((value) => value?.toLocaleLowerCase().includes(normalizedQuery)));
 });
+const sortedEntries = computed(() => {
+    const entries = filteredEntries.value;
+    if (sortMode.value === 'addedAsc') return entries;
+    if (sortMode.value === 'addedDesc') return [...entries].reverse();
+    const collator = new Intl.Collator(locale.value, {
+        numeric: true,
+        sensitivity: 'base',
+        usage: 'sort'
+    });
+    const direction = sortMode.value === 'nameAsc' ? 1 : -1;
+    return [...entries].sort((left, right) => direction * (
+        collator.compare(
+            resolveLabel(left.effectiveRule.label, locale.value) ?? left.key,
+            resolveLabel(right.effectiveRule.label, locale.value) ?? right.key
+        ) || collator.compare(left.key, right.key)
+    ));
+});
 
 const resolveCategoryId = (value: string | null) =>
     categorySpecs.find((category) => category.path === value)?.id;
@@ -74,7 +93,7 @@ const refreshImageViewer = () => nextTick(() => {
     });
 });
 
-watch([filteredEntries, loading], refreshImageViewer, { flush: 'post' });
+watch([sortedEntries, loading], refreshImageViewer, { flush: 'post' });
 onBeforeUnmount(() => {
     imageZoom?.detach();
     if (!isLocalizedRouteSwitch(mountedRoutePath, window.location.pathname)) resetIconResourcesState();
@@ -101,14 +120,17 @@ onMounted(async () => {
 
 <template>
     <section ref="iconResourcesShell" class="icon-resources-shell">
-        <CategoryNavigation v-model:system-menu-open="systemMenuOpen" :active-category-id="activeCategoryId"
-            :category-count="categoryCount" :system-categories="systemCategories"
-            :system-button-label="systemButtonLabel" :text="text" @select="selectCategory" />
+        <div class="resource-toolbar">
+            <CategoryNavigation v-model:system-menu-open="systemMenuOpen" :active-category-id="activeCategoryId"
+                :category-count="categoryCount" :system-categories="systemCategories"
+                :system-button-label="systemButtonLabel" :text="text" @select="selectCategory" />
+            <ResourceSorting v-model="sortMode" :text="text" />
+        </div>
         <label class="search-box">
             <span aria-hidden="true">⌕</span>
             <input v-model="query" type="search" :placeholder="text.search">
         </label>
-        <ResourceResults :fatal-error="fatalError" :filtered-entries="filteredEntries" :loading="loading"
+        <ResourceResults :fatal-error="fatalError" :filtered-entries="sortedEntries" :loading="loading"
             :selected-category="selectedCategory" :text="text" />
     </section>
 </template>
@@ -116,6 +138,17 @@ onMounted(async () => {
 <style scoped lang="scss">
 .icon-resources-shell {
     margin-top: 24px;
+}
+
+.resource-toolbar {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    :deep(.category-tabs) {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
 }
 
 .search-box {

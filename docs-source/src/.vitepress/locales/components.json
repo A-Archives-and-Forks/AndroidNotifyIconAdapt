@@ -21,6 +21,13 @@
       "resourceDirectory": "Resource Directory",
       "result": "rules",
       "search": "Search by label, package name, or contributor",
+      "sort": "Sort",
+      "sortOptions": {
+        "name": "By Name",
+        "added": "By Addition",
+        "ascending": "Ascending",
+        "descending": "Descending"
+      },
       "system": "System"
     },
     "submitAdaption": {
@@ -143,6 +150,13 @@
       "resourceDirectory": "资源目录",
       "result": "条规则",
       "search": "搜索名称、包名或贡献者",
+      "sort": "排序",
+      "sortOptions": {
+        "name": "按名称",
+        "added": "按添加",
+        "ascending": "正序",
+        "descending": "倒序"
+      },
       "system": "系统"
     },
     "submitAdaption": {
