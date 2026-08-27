@@ -199,5 +199,26 @@
     "color": "#52A535",
     "overlay": false,
     "contributors": "xiaoxian9872025-afk"
+  },
+  "com.qqgame.hlddz": {
+    "label": "欢乐斗地主",
+    "format": "png",
+    "color": "#F49B0E",
+    "overlay": false,
+    "contributors": "lirkang"
+  },
+  "com.netease.party": {
+    "label": {
+      "en": "Eggy Party",
+      "zh-CN": "蛋仔派对"
+    },
+    "format": "png",
+    "color": "#FCCC04",
+    "overlay": false,
+    "contributors": "Mc-user1688"
+  },
+  "com.netease.party.mi": {
+    "target": "com.netease.party",
+    "label": "蛋仔派对 (小米渠道服)"
   }
 }

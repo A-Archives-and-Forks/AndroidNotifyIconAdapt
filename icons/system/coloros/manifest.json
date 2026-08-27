@@ -532,5 +532,15 @@
     "format": "png",
     "overlay": false,
     "contributors": "fankes"
+  },
+  "com.oplus.owork": {
+    "label": {
+      "en": "OWork",
+      "zh-CN": "随身工作台"
+    },
+    "format": "png",
+    "color": "#2D40E9",
+    "overlay": false,
+    "contributors": "ConleyFu"
   }
 }

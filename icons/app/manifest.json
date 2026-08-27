@@ -4812,5 +4812,52 @@
     "color": "#D9A678",
     "overlay": false,
     "contributors": "Mc-user1688"
+  },
+  "cn.edu.buaa.wxwork": {
+    "label": "智慧北航",
+    "format": "png",
+    "color": "#01519A",
+    "overlay": false,
+    "contributors": "DeepChirp"
+  },
+  "com.csii.hrxj": {
+    "label": {
+      "en": "Bank of Hunan",
+      "zh-CN": "湖南银行"
+    },
+    "format": "png",
+    "color": "#0758A8",
+    "overlay": false,
+    "contributors": "woshixiajun"
+  },
+  "com.dx.workhelper": {
+    "label": "智慧工作",
+    "format": "png",
+    "color": "#0085FF",
+    "overlay": false,
+    "contributors": "zxygood"
+  },
+  "com.jarstones.jizhang": {
+    "label": "一飞记账",
+    "format": "png",
+    "color": "#33A5E1",
+    "overlay": false,
+    "contributors": "jyh9521"
+  },
+  "com.baosight.baowuandroid": {
+    "label": {
+      "en": "China Baowu",
+      "zh-CN": "中国宝武"
+    },
+    "format": "png",
+    "color": "#124B8B",
+    "overlay": false,
+    "contributors": "Zuomianliang"
+  },
+  "com.alibaba.android.rimet.zju": {
+    "label": "浙大钉",
+    "format": "png",
+    "overlay": false,
+    "contributors": "guiwang1201"
   }
 }
