@@ -19,12 +19,35 @@ import {
     type CategoryId,
     type ManifestLabel
 } from '../data/icon-resources';
-import { iconResourcesState, resetIconResourcesState } from './icon-resources/utils/state';
+import {
+    iconResourcesState,
+    resetIconResourcesState,
+    type IconResourceSortMode
+} from './icon-resources/utils/state';
 
 const { locale, text } = useComponentMessages('iconResources');
 const route = useRoute();
 const mountedRoutePath = route.path;
+const sortModeCookieName = 'anip-icon-resources-sort';
+const sortModeCookieMaxAge = 60 * 60 * 24 * 365;
+const sortModes = new Set<IconResourceSortMode>(['nameAsc', 'nameDesc', 'addedAsc', 'addedDesc']);
 const { activeCategoryId, categories, fatalError, loading, query, sortMode } = iconResourcesState;
+const readSavedSortMode = () => {
+    const cookie = document.cookie.split('; ').find((value) => value.startsWith(`${sortModeCookieName}=`));
+    if (!cookie) return;
+    const value = cookie.slice(sortModeCookieName.length + 1);
+    return sortModes.has(value as IconResourceSortMode) ? value as IconResourceSortMode : undefined;
+};
+const writeSavedSortMode = (value: IconResourceSortMode) => {
+    document.cookie = `${sortModeCookieName}=${value}; Max-Age=${sortModeCookieMaxAge}; Path=/; SameSite=Lax`;
+};
+const persistedSortMode = computed({
+    get: () => sortMode.value,
+    set: (value: IconResourceSortMode) => {
+        sortMode.value = value;
+        writeSavedSortMode(value);
+    }
+});
 const labelSearchValues = (label: ManifestLabel | undefined) =>
     typeof label === 'string' ? [label] : Object.values(label ?? {});
 const systemMenuOpen = ref(false);
@@ -100,6 +123,8 @@ onBeforeUnmount(() => {
 });
 
 onMounted(async () => {
+    const savedSortMode = readSavedSortMode();
+    if (savedSortMode) sortMode.value = savedSortMode;
     refreshImageViewer();
     if (iconResourcesState.initialized.value) return;
     iconResourcesState.initialized.value = true;
@@ -124,7 +149,7 @@ onMounted(async () => {
             <CategoryNavigation v-model:system-menu-open="systemMenuOpen" :active-category-id="activeCategoryId"
                 :category-count="categoryCount" :system-categories="systemCategories"
                 :system-button-label="systemButtonLabel" :text="text" @select="selectCategory" />
-            <ResourceSorting v-model="sortMode" :text="text" />
+            <ResourceSorting v-model="persistedSortMode" :text="text" />
         </div>
         <label class="search-box">
             <span aria-hidden="true">⌕</span>
