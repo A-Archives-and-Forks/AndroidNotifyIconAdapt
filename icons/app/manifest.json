@@ -4398,5 +4398,178 @@
     "color": "#FE8D35",
     "overlay": false,
     "contributors": "ZhangCe"
+  },
+  "com.jdee.gwork": {
+    "label": "京办",
+    "format": "png",
+    "overlay": false,
+    "contributors": "lyqzxy"
+  },
+  "com.voyah.fassistant": {
+    "label": {
+      "en": "VOYAH",
+      "zh-CN": "岚图汽车"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "lyqzxy"
+  },
+  "com.windyty.android": {
+    "label": "windy",
+    "format": "png",
+    "color": "#AC1000",
+    "overlay": false,
+    "contributors": "Zori9527"
+  },
+  "my.maya.android": {
+    "label": {
+      "en": "Duoshan",
+      "zh-CN": "多闪"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "Nyx-233"
+  },
+  "com.avatar.buyer.client": {
+    "label": {
+      "en": "AVATR",
+      "zh-CN": "阿维塔"
+    },
+    "format": "png",
+    "color": "#132543",
+    "overlay": false,
+    "contributors": "F1ytic"
+  },
+  "com.toyota.ftmsApp": {
+    "label": {
+      "en": "FAW Toyota",
+      "zh-CN": "一汽丰田"
+    },
+    "format": "png",
+    "color": "#7C7C7B",
+    "overlay": false,
+    "contributors": "sakura633"
+  },
+  "cn.wenyu.bodian": {
+    "label": "波点音乐",
+    "format": "png",
+    "overlay": false,
+    "contributors": "KIITTID"
+  },
+  "com.kdweibo.client": {
+    "label": "云之家",
+    "format": "png",
+    "overlay": false,
+    "contributors": "Amk326"
+  },
+  "com.geelygalaxy.customer": {
+    "label": {
+      "en": "Geely Galaxy",
+      "zh-CN": "吉利银河"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "Albert-PDC"
+  },
+  "com.arlosoft.macrodroid": {
+    "label": "MacroDroid",
+    "format": "png",
+    "color": "#2B4263",
+    "overlay": false,
+    "contributors": "furrybluelan"
+  },
+  "com.lanjinger.choiassociatedpress": {
+    "label": "财联社",
+    "format": "png",
+    "color": "#CD2A23",
+    "overlay": false,
+    "contributors": "2xSir"
+  },
+  "zb.s20190614095159591": {
+    "label": "石化通",
+    "format": "png",
+    "overlay": false,
+    "contributors": "inprivateme"
+  },
+  "com.sankuai.xmpp": {
+    "label": "大象",
+    "format": "png",
+    "color": "#1163C1",
+    "overlay": false,
+    "contributors": "zhizhi-web"
+  },
+  "idm.internet.download.manager.plus": {
+    "label": "1dm+",
+    "format": "png",
+    "overlay": false,
+    "contributors": "G31415"
+  },
+  "com.xtc.watch": {
+    "label": "小天才",
+    "format": "png",
+    "color": "#FF8F0C",
+    "overlay": false,
+    "contributors": "mingxitang"
+  },
+  "com.idaodan.video.factory": {
+    "label": "KB视频工厂",
+    "format": "png",
+    "color": "#41ABFF",
+    "overlay": false,
+    "contributors": "Promise0929"
+  },
+  "com.xiaopeng.mycarinfo": {
+    "label": {
+      "en": "XPENG",
+      "zh-CN": "小鹏汽车"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "AdenXie"
+  },
+  "com.cmri.universalapp": {
+    "label": "移动爱家 (原名和家亲)",
+    "format": "png",
+    "overlay": false,
+    "contributors": "Qinyixiansheng"
+  },
+  "com.alibaba.android.rimet.catlcome": {
+    "label": "COME3.0",
+    "format": "png",
+    "color": "#0243D1",
+    "overlay": false,
+    "contributors": "ifafaer"
+  },
+  "cn.lunkr.android": {
+    "label": {
+      "en": "Coremail Lunkr",
+      "zh-CN": "Coremail论客"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "Tinkysc30"
+  },
+  "com.wsecar.wsjc": {
+    "label": "万顺叫车",
+    "format": "png",
+    "overlay": false,
+    "contributors": "Hepcatw"
+  },
+  "com.cmbc.cc.mbank": {
+    "label": "民生信用卡全民生活",
+    "format": "png",
+    "color": "#0086B4",
+    "overlay": false,
+    "contributors": "li0625"
+  },
+  "com.duitang.main": {
+    "label": {
+      "en": "Duitang",
+      "zh-CN": "堆糖"
+    },
+    "format": "png",
+    "color": "#E75050",
+    "overlay": false,
+    "contributors": "qianqianNotqianqian"
   }
 }

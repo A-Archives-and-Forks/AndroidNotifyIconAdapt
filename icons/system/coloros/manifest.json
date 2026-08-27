@@ -64,6 +64,14 @@
       "zh-CN": "电话"
     }
   },
+  "com.android.phone": {
+    "target": "com.android.contacts",
+    "label": {
+      "en": "Phone Service",
+      "zh-CN": "电话服务"
+    },
+    "contributors": "biubiuzai"
+  },
   "com.android.mms": {
     "label": {
       "en": "Messages",

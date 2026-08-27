@@ -42,5 +42,13 @@
       "en": "ColorOS Weather Service",
       "zh-CN": "ColorOS 天气服务"
     }
+  },
+  "net.oneplus.weather": {
+    "target": "com.miui.weather2",
+    "label": {
+      "en": "OnePlus Weather",
+      "zh-CN": "一加天气"
+    },
+    "contributors": "DdogezD"
   }
 }
