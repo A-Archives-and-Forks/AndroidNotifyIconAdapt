@@ -4571,5 +4571,246 @@
     "color": "#E75050",
     "overlay": false,
     "contributors": "qianqianNotqianqian"
+  },
+  "com.aliyun.tongyi": {
+    "label": {
+      "en": "Qwen",
+      "zh-CN": "千问"
+    },
+    "format": "png",
+    "color": "#2B44FF",
+    "overlay": false,
+    "contributors": "Ikmjun"
+  },
+  "com.byyoung.setting": {
+    "label": "爱玩机工具箱",
+    "format": "png",
+    "color": "#0D03DA",
+    "overlay": false,
+    "contributors": "HHXXYY123"
+  },
+  "com.kylin.read": {
+    "target": "com.phoenix.read",
+    "label": "红果免费漫剧",
+    "contributors": "zhuwentao3874046612"
+  },
+  "app.huawei.auto": {
+    "label": "AITO",
+    "format": "png",
+    "overlay": false,
+    "contributors": "dd1772249002-code"
+  },
+  "com.yjs.android": {
+    "label": "应届生求职",
+    "format": "png",
+    "color": "#C8F706",
+    "overlay": false,
+    "contributors": "L-zee"
+  },
+  "com.edifier.edifierconnect": {
+    "label": "EDIFIER Connect",
+    "format": "png",
+    "color": "#39C1FF",
+    "overlay": false,
+    "contributors": "qli5208, KanzakiZukasa"
+  },
+  "se.footballaddicts.livescore": {
+    "label": "Forza",
+    "format": "png",
+    "color": "#0097A4",
+    "overlay": false,
+    "contributors": "sheisloveyeah"
+  },
+  "com.tennisrn": {
+    "label": "TNNS Live",
+    "format": "png",
+    "color": "#530F8B",
+    "overlay": false,
+    "contributors": "sheisloveyeah"
+  },
+  "com.sf.tf": {
+    "label": "时代峰峻Fanclub",
+    "format": "png",
+    "color": "#F6A91B",
+    "overlay": false,
+    "contributors": "sheisloveyeah"
+  },
+  "com.magicalstory.AppStore": {
+    "label": {
+      "en": "Wonderful",
+      "zh-CN": "奇妙应用"
+    },
+    "format": "png",
+    "color": "#15C5CE",
+    "overlay": false,
+    "contributors": "hxh34, G31415"
+  },
+  "com.omarea.vtools": {
+    "label": "Scene",
+    "format": "png",
+    "color": "#538FF3",
+    "overlay": false,
+    "contributors": "G31415"
+  },
+  "com.qq.ac.android": {
+    "label": "腾讯动漫",
+    "format": "png",
+    "color": "#FF6A3F",
+    "overlay": false,
+    "contributors": "ek404-sk, dcvh556tfg, zhl020301"
+  },
+  "com.baidu.apollo.go": {
+    "label": {
+      "en": "Apollo Go",
+      "zh-CN": "萝卜快跑"
+    },
+    "format": "png",
+    "color": "#01CAA2",
+    "overlay": false,
+    "contributors": "zxyist"
+  },
+  "com.changan.uni": {
+    "label": "引力域",
+    "format": "png",
+    "color": "#1E4475",
+    "overlay": false,
+    "contributors": "WuLve"
+  },
+  "info.zamojski.soft.towercollector": {
+    "label": "Tower Collector",
+    "format": "png",
+    "overlay": false,
+    "contributors": "CoelacanthusHex"
+  },
+  "com.tyg.tygsmart": {
+    "label": "桃园谷",
+    "format": "png",
+    "color": "#FF670E",
+    "overlay": false,
+    "contributors": "hxh34"
+  },
+  "com.byd.sea": {
+    "label": {
+      "en": "BYD Ocean",
+      "zh-CN": "比亚迪海洋"
+    },
+    "format": "png",
+    "color": "#0F9BD8",
+    "overlay": false,
+    "contributors": "woshixiajun"
+  },
+  "com.deepseek.chat": {
+    "label": "DeepSeek",
+    "format": "png",
+    "color": "#5370FE",
+    "overlay": false,
+    "contributors": "cbwutuobang"
+  },
+  "com.qiekj.user": {
+    "label": "胖乖生活",
+    "format": "png",
+    "color": "#4386F7",
+    "overlay": false,
+    "contributors": "lie-jiu"
+  },
+  "gov.anzong.androidnga": {
+    "label": {
+      "en": "Open NGA",
+      "zh-CN": "NGA客户端开源版"
+    },
+    "format": "png",
+    "color": "#FFE0B2",
+    "overlay": false,
+    "contributors": "yEs1do"
+  },
+  "com.showstartfans.activity": {
+    "label": {
+      "en": "ShowStart",
+      "zh-CN": "秀动"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "hongyf233"
+  },
+  "com.moutai.mall": {
+    "label": "i茅台",
+    "format": "png",
+    "color": "#E42222",
+    "overlay": false,
+    "contributors": "Duanchuyang"
+  },
+  "com.catlinks.app": {
+    "label": {
+      "en": "CATLINK",
+      "zh-CN": "联宠智能"
+    },
+    "format": "png",
+    "color": "#4983FF",
+    "overlay": false,
+    "contributors": "zhoupu210"
+  },
+  "me.ele.crowdsource": {
+    "label": "蜂鸟众包",
+    "format": "png",
+    "color": "#1971FF",
+    "overlay": false,
+    "contributors": "applome"
+  },
+  "com.ikang.official": {
+    "label": "爱康约体检查报告",
+    "format": "png",
+    "color": "#FD590F",
+    "overlay": false,
+    "contributors": "zintine"
+  },
+  "com.hollysmart.smart_beijinggovernmentaffairsplatform": {
+    "label": "机关服务平台",
+    "format": "png",
+    "color": "#0087E3",
+    "overlay": false,
+    "contributors": "zintine"
+  },
+  "com.bjetc.mobile": {
+    "label": {
+      "en": "BJETC",
+      "zh-CN": "乐速通"
+    },
+    "format": "png",
+    "color": "#4E9FDF",
+    "overlay": false,
+    "contributors": "zintine"
+  },
+  "com.cloudpower.netsale.activity": {
+    "label": {
+      "en": "PICC",
+      "zh-CN": "中国人保"
+    },
+    "format": "png",
+    "color": "#DA3414",
+    "overlay": false,
+    "contributors": "zintine"
+  },
+  "com.dw.btime": {
+    "label": "亲宝宝",
+    "format": "png",
+    "color": "#F79F1B",
+    "overlay": false,
+    "contributors": "TimeRainStarSky"
+  },
+  "com.mi.car.mobile": {
+    "label": {
+      "en": "Xiaomi EV",
+      "zh-CN": "小米汽车"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "wanghr2000, Matt0o0"
+  },
+  "com.tencent.tgclub": {
+    "label": "心悦俱乐部",
+    "format": "png",
+    "color": "#D9A678",
+    "overlay": false,
+    "contributors": "Mc-user1688"
   }
 }

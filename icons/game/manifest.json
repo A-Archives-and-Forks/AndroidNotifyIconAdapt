@@ -189,5 +189,15 @@
     "format": "png",
     "overlay": false,
     "contributors": "Amk326"
+  },
+  "com.netease.x19": {
+    "label": {
+      "en": "Minecraft: China Edition",
+      "zh-CN": "我的世界：移动版"
+    },
+    "format": "png",
+    "color": "#52A535",
+    "overlay": false,
+    "contributors": "xiaoxian9872025-afk"
   }
 }

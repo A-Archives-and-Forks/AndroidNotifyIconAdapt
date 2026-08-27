@@ -502,5 +502,35 @@
     "format": "png",
     "overlay": false,
     "contributors": "giresharu"
+  },
+  "com.coloros.note": {
+    "label": {
+      "en": "Notes",
+      "zh-CN": "便签"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "a1623382"
+  },
+  "com.oplus.audiomoniter": {
+    "target": "com.oplus.audiomonitor",
+    "label": "第三方应用通话录音",
+    "color": "#FB422E",
+    "contributors": "NekoMua"
+  },
+  "com.oplus.ocar": {
+    "label": "Car+车联",
+    "format": "png",
+    "overlay": false,
+    "contributors": "CrazyBing-bro"
+  },
+  "com.heytap.mcs": {
+    "label": {
+      "en": "System Messages",
+      "zh-CN": "系统消息"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "fankes"
   }
 }

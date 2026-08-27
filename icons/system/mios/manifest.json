@@ -403,5 +403,14 @@
     "color": "#19A5FA",
     "overlay": false,
     "contributors": "Illustar0"
+  },
+  "com.miui.password": {
+    "label": {
+      "en": "Passwords",
+      "zh-CN": "密码"
+    },
+    "format": "png",
+    "overlay": false,
+    "contributors": "MOCHbbb"
   }
 }
