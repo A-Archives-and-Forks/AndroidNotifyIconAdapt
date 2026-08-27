@@ -1,7 +1,7 @@
 name: Notification Icon Adaption Submission
 description: Use this template to submit a checked notification icon resource / 已经检查通过的通知图标资源须使用此模板提交
 labels: [submit-adaption]
-title: "[Submission]"
+title: "[Submission] "
 body:
   - type: markdown
     attributes:
@@ -20,7 +20,7 @@ body:
     id: anip-package-name
     attributes:
       label: "App Package Name / 应用包名"
-      placeholder: "Here to fill in the app package name, for example: **com.tencent.mm** / 这里填写应用的包名，例如：**com.tencent.mm**"
+      description: "Here to fill in the app package name, for example: **com.tencent.mm** / 这里填写应用的包名，例如：**com.tencent.mm**"
     validations:
       required: true
   - type: input
