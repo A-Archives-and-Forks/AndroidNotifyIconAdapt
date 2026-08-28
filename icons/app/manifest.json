@@ -4859,5 +4859,15 @@
     "format": "png",
     "overlay": false,
     "contributors": "guiwang1201"
+  },
+  "com.ugreen.pro": {
+    "label": {
+      "en": "UGREEN NAS",
+      "zh-CN": "绿联云"
+    },
+    "format": "png",
+    "color": "#0055FF",
+    "overlay": false,
+    "contributors": "Taylorc0804"
   }
 }
