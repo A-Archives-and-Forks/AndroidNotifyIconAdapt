@@ -176,6 +176,31 @@ onMounted(async () => {
     }
 }
 
+@media (max-width: 640px) {
+    .resource-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+
+        :deep(.category-tabs) {
+            width: 100%;
+            padding-right: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            overscroll-behavior-x: contain;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        :deep(.sort-control) {
+            z-index: 1;
+        }
+    }
+}
+
 .search-box {
     display: flex;
     align-items: center;

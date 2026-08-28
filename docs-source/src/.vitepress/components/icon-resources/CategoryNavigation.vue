@@ -22,9 +22,34 @@ const emit = defineEmits<{
 }>();
 
 const navigationRoot = ref<HTMLElement>();
+const systemTrigger = ref<HTMLButtonElement>();
+const systemMenuPosition = ref({
+    left: '0px',
+    maxWidth: 'calc(100vw - 16px)',
+    top: '0px'
+});
 const activeSystemCategory = computed(() =>
     props.systemCategories.find((category) => category.id === props.activeCategoryId)
 );
+const updateSystemMenuPosition = () => {
+    const trigger = systemTrigger.value;
+    if (!trigger) return;
+    const triggerBounds = trigger.getBoundingClientRect();
+    const left = Math.max(8, Math.min(triggerBounds.left, window.innerWidth - 168));
+    systemMenuPosition.value = {
+        left: `${left}px`,
+        maxWidth: `${window.innerWidth - left - 8}px`,
+        top: `${triggerBounds.bottom + 8}px`
+    };
+};
+const updateOpenSystemMenuPosition = () => {
+    if (props.systemMenuOpen) updateSystemMenuPosition();
+};
+const toggleSystemMenu = () => {
+    const open = !props.systemMenuOpen;
+    if (open) updateSystemMenuPosition();
+    emit('update:systemMenuOpen', open);
+};
 const closeSystemMenuOnDocumentClick = (event: MouseEvent) => {
     if (!navigationRoot.value?.contains(event.target as Node)) emit('update:systemMenuOpen', false);
 };
@@ -35,10 +60,14 @@ const closeSystemMenuOnEscape = (event: KeyboardEvent) => {
 onMounted(() => {
     document.addEventListener('click', closeSystemMenuOnDocumentClick);
     document.addEventListener('keydown', closeSystemMenuOnEscape);
+    window.addEventListener('resize', updateOpenSystemMenuPosition);
+    window.addEventListener('scroll', updateOpenSystemMenuPosition, true);
 });
 onBeforeUnmount(() => {
     document.removeEventListener('click', closeSystemMenuOnDocumentClick);
     document.removeEventListener('keydown', closeSystemMenuOnEscape);
+    window.removeEventListener('resize', updateOpenSystemMenuPosition);
+    window.removeEventListener('scroll', updateOpenSystemMenuPosition, true);
 });
 </script>
 
@@ -55,22 +84,24 @@ onBeforeUnmount(() => {
             <span class="count">{{ categoryCount('game') }}</span>
         </button>
         <div class="system-menu-wrapper">
-            <button type="button" class="system-trigger" :class="{ active: activeSystemCategory }" aria-haspopup="menu"
-                :aria-expanded="systemMenuOpen" @click="emit('update:systemMenuOpen', !systemMenuOpen)">
+            <button ref="systemTrigger" type="button" class="system-trigger" :class="{ active: activeSystemCategory }"
+                aria-haspopup="menu" :aria-expanded="systemMenuOpen" @click="toggleSystemMenu">
                 {{ systemButtonLabel }}
                 <span v-if="activeSystemCategory" class="count">{{ categoryCount(activeSystemCategory.id) }}</span>
                 <span class="vpi-chevron-down system-chevron" aria-hidden="true" />
             </button>
-            <Transition name="system-menu">
-                <div v-if="systemMenuOpen" class="system-menu" role="menu">
-                    <button v-for="category in systemCategories" :key="category.id" type="button" role="menuitemradio"
-                        :aria-checked="activeCategoryId === category.id"
-                        :class="{ active: activeCategoryId === category.id }" @click="emit('select', category.id)">
-                        {{ text.categories[category.id] }}
-                        <span>{{ categoryCount(category.id) }}</span>
-                    </button>
-                </div>
-            </Transition>
+            <Teleport to="body">
+                <Transition name="system-menu">
+                    <div v-if="systemMenuOpen" class="system-menu" role="menu" :style="systemMenuPosition">
+                        <button v-for="category in systemCategories" :key="category.id" type="button"
+                            role="menuitemradio" :aria-checked="activeCategoryId === category.id"
+                            :class="{ active: activeCategoryId === category.id }" @click="emit('select', category.id)">
+                            <span class="category-label">{{ text.categories[category.id] }}</span>
+                            <span class="count">{{ categoryCount(category.id) }}</span>
+                        </button>
+                    </div>
+                </Transition>
+            </Teleport>
         </div>
     </div>
 </template>
@@ -126,10 +157,8 @@ onBeforeUnmount(() => {
 }
 
 .system-menu {
-    position: absolute;
-    z-index: 20;
-    top: calc(100% + 8px);
-    left: 0;
+    position: fixed;
+    z-index: 100;
     display: grid;
     min-width: 160px;
     padding: 8px;
@@ -139,11 +168,11 @@ onBeforeUnmount(() => {
     box-shadow: var(--vp-shadow-3);
 
     button {
-        display: flex;
+        display: grid;
         align-items: center;
-        justify-content: space-between;
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 20px;
-        width: 100%;
+        min-width: 0;
         padding: 7px 10px;
         border: 0;
         border-radius: 6px;
@@ -153,9 +182,17 @@ onBeforeUnmount(() => {
         text-align: left;
         cursor: pointer;
 
-        span {
+        .category-label {
+            overflow: hidden;
+            color: inherit;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .count {
             color: var(--vp-c-text-3);
             font-size: 12px;
+            white-space: nowrap;
         }
 
         &:hover {
