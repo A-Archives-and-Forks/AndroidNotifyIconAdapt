@@ -79,4 +79,26 @@ anip-bundle-<SHA1>.zip
 └─ system/
 ```
 
-我们不建议直接通过 Raw 使用项目的资源，而是直接拉取最新的 Release 压缩包进行使用，或者使用 ANIP 提供的官方 Android 依赖库 (目前尚未发布)。
+同一 Release 中还会提供固定命名的 `anip-release.json` 发布清单，用于描述当前资源包并提供完整性校验信息，其结构如下。
+
+```json
+{
+  "schemaVersion": 1,
+  "tag": "1a2b3c4",
+  "timestamp": 1788451200000,
+  "assetName": "anip-bundle-1a2b3c4.zip",
+  "downloadUrl": "anip-bundle-1a2b3c4.zip",
+  "size": 1234567,
+  "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+}
+```
+
+- `schemaVersion`：发布清单的结构版本，目前固定为 `1`
+- `tag`：当前 Release 的标签，为对应主分支提交 SHA-1 的前 7 位
+- `timestamp`：对应提交的 Unix 时间戳，单位为毫秒
+- `assetName`：当前图标资源压缩包的完整文件名
+- `downloadUrl`：图标资源压缩包的下载地址，可以是完整 URL，也可以是相对于发布清单地址的路径
+- `size`：图标资源压缩包的文件大小，单位为字节
+- `sha256`：图标资源压缩包的 SHA-256 校验值
+
+我们不建议直接通过 Raw 使用项目的资源，而是直接拉取最新的 Release 压缩包进行使用，或者使用 ANIP 提供的 [官方 SDK](../sdk/quick-start.md)。

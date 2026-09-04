@@ -23,6 +23,6 @@
     "docs:dev": "vitepress dev src --host 0.0.0.0",
     "docs:build": "vitepress build src",
     "docs:preview": "vitepress preview src --host 0.0.0.0",
-    "docs:build-gh-pages": "vitepress build src && touch dist/.nojekyll"
+    "docs:build-gh-pages": "vitepress build src && touch dist/.nojekyll && sh build-dokka.sh"
   }
 }

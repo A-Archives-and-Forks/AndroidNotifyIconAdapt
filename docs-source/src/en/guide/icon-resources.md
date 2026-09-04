@@ -82,4 +82,26 @@ anip-bundle-<SHA1>.zip
 └─ system/
 ```
 
-We do not recommend using the project's resources directly through raw. Instead, pull the latest release package for use, or use the official Android dependency library provided by ANIP (not yet released).
+The same release also provides a release manifest with the fixed name `anip-release.json`. It describes the current resource bundle and provides integrity verification information in the following structure.
+
+```json
+{
+  "schemaVersion": 1,
+  "tag": "1a2b3c4",
+  "timestamp": 1788451200000,
+  "assetName": "anip-bundle-1a2b3c4.zip",
+  "downloadUrl": "anip-bundle-1a2b3c4.zip",
+  "size": 1234567,
+  "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+}
+```
+
+- `schemaVersion`: Release manifest schema version, currently fixed at `1`
+- `tag`: Current release tag, consisting of the first seven characters of the corresponding main-branch commit SHA-1
+- `timestamp`: Unix timestamp of the corresponding commit, in milliseconds
+- `assetName`: Full file name of the current icon resource archive
+- `downloadUrl`: Download address of the icon resource archive, either an absolute URL or a path relative to the release manifest URL
+- `size`: Icon resource archive size in bytes
+- `sha256`: SHA-256 checksum of the icon resource archive
+
+We do not recommend using the project's resources directly through raw. Instead, pull the latest release package for use, or use the ANIP's [Official SDK](../sdk/quick-start.md).

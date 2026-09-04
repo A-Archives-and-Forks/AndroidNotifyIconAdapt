@@ -20,7 +20,7 @@
 
 ANIP 目前采用社区配套的 Xposed 模块方案对系统界面 (System UI) 进行适配，并提供了依赖社区维护的第三方应用、游戏、系统应用的单色通知图标资源与规则。
 
-目前 ANIP 的支持路线如下，后期我们会将这些 Xposed 模块整合为一个聚合型模块统一进行适配并由 BetterAndroid 组织管理。
+目前 ANIP 的支持路线如下，后期我们会将这些 Xposed 模块整合为一个聚合型模块统一进行适配并由 [BetterAndroid](https://github.com/BetterAndroid) 组织管理。
 
 1. 可直接使用的 Xposed 模块
 
@@ -33,7 +33,9 @@ ANIP 目前采用社区配套的 Xposed 模块方案对系统界面 (System UI) 
 - Flyme 用户请参阅 [此 Issue](repo://issues/201)
 - OneUI 用户请参阅 [此 Issue](repo://issues/475)
 
-ANIP 后期计划提供图标资源下载与应用的官方 Android 依赖库并将发布至 Maven 存储库，后期你将可以使用这套 API 构建自己的 Xposed 模块或通知适配方案。
+ANIP 提供了图标资源下载与应用的 [官方 SDK](../sdk/quick-start.md)，你可以使用这套 SDK 构建自己的 Xposed 模块或通知适配方案。
+
+如果你是用户，你可以下载并体验 [ANIP 演示](branch://sdk/samples/demo/release)。
 
 ## 不规范公示
 

@@ -28,6 +28,12 @@ const navigationSections: NavigationSection[] = [{
         { path: '/contribute/submit', title: { en: 'Ready to Submit', 'zh-cn': '准备提交' } }
     ]
 }, {
+    title: { en: 'SDK Documentation', 'zh-cn': 'SDK 文档' },
+    links: [
+        { path: '/sdk/quick-start', title: { en: 'Quick Start', 'zh-cn': '快速开始' } },
+        { path: '/sdk/changelog', title: { en: 'Changelog', 'zh-cn': '更新日志' } }
+    ]
+}, {
     title: { en: 'About', 'zh-cn': '关于' },
     links: [
         { path: '/about/contacts', title: { en: 'Contact Us', 'zh-cn': '联系我们' } },
@@ -101,6 +107,7 @@ export const configs = {
 export const pageLinkRefs: PageLinkRefs = {
     dev: [
         { 'repo://': `${configs.github.repo}/` },
+        { 'kdoc://': 'http://localhost:9001/' },
         { 'releases://': `${configs.github.repo}/releases/` },
         { 'branch://': `${configs.github.repo}/blob/${configs.github.branch}/` },
         { 'raw://': `${configs.github.repo}/raw/${configs.github.branch}/` },
@@ -108,6 +115,7 @@ export const pageLinkRefs: PageLinkRefs = {
     ],
     prod: [
         { 'repo://': `${configs.github.repo}/` },
+        { 'kdoc://': `${configs.github.page}/KDoc/` },
         { 'releases://': `${configs.github.repo}/releases/` },
         { 'branch://': `${configs.github.repo}/blob/${configs.github.branch}/` },
         { 'raw://': `${configs.github.repo}/raw/${configs.github.branch}/` },
