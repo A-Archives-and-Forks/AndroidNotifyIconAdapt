@@ -61,18 +61,44 @@ jobs:
             cd icons
             zip -qr "$archive" app game system
           )
+          asset_name="anip-bundle-$TAG.zip"
+          manifest="$RUNNER_TEMP/anip-release.json"
+          timestamp_seconds=$(git show -s --format=%ct "$SHA")
+          timestamp=$((timestamp_seconds * 1000))
+          size=$(stat -c%s "$archive")
+          sha256=$(sha256sum "$archive" | cut -d ' ' -f1)
+          download_url="https://github.com/$GITHUB_REPOSITORY/releases/download/$TAG/$asset_name"
+          jq -n \
+            --argjson schemaVersion 1 \
+            --arg tag "$TAG" \
+            --argjson timestamp "$timestamp" \
+            --arg assetName "$asset_name" \
+            --arg downloadUrl "$download_url" \
+            --argjson size "$size" \
+            --arg sha256 "$sha256" \
+            '{
+              schemaVersion: $schemaVersion,
+              tag: $tag,
+              timestamp: $timestamp,
+              assetName: $assetName,
+              downloadUrl: $downloadUrl,
+              size: $size,
+              sha256: $sha256
+            }' > "$manifest"
           {
             echo "**Contributor**: @$CONTRIBUTOR"
             echo
             echo "**Full Changelog**: https://github.com/$GITHUB_REPOSITORY/compare/$before_tag...$TAG"
           } > "$RUNNER_TEMP/anip-release-notes.md"
           echo "archive=$archive" >> "$GITHUB_OUTPUT"
+          echo "manifest=$manifest" >> "$GITHUB_OUTPUT"
 
       - name: Publish Icon Resource Release
         if: steps.release.outputs.exists == 'false'
         env:
           ARCHIVE: ${{ steps.bundle.outputs.archive }}
+          MANIFEST: ${{ steps.bundle.outputs.manifest }}
           SHA: ${{ steps.release.outputs.sha }}
           TAG: ${{ steps.release.outputs.tag }}
         run: |
-          gh release create "$TAG" "$ARCHIVE" --repo "$GITHUB_REPOSITORY" --target "$SHA" --title "$TAG" --notes-file "$RUNNER_TEMP/anip-release-notes.md"
+          gh release create "$TAG" "$ARCHIVE" "$MANIFEST" --repo "$GITHUB_REPOSITORY" --target "$SHA" --title "$TAG" --notes-file "$RUNNER_TEMP/anip-release-notes.md" --latest
